@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.json",
+  "app_specific_configuration_path": "$KOMOREBI_CONFIG_HOME/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 12,
+  "default_container_padding": 8,
+  "transparency": true,
+  "transparency_alpha": 240,
+  "animation": {
+    "enabled": true,
+    "duration": 80,
+    "fps": 120,
+    "style": "EaseOutCubic"
+  },
+  "border": true,
+  "border_width": 8,
+  "border_offset": -1,
+  "border_style": "Rounded",
+  "border_radius": 10,
+  "border_implementation": "Komorebi",
+  "border_colours": {
+    "single": "#85023e",
+    "stack": "#f5e0dc",
+    "monocle": "#89b4fa",
+    "unfocused": "#313244"
+  },
+"display_index_preferences": {
+    "0": "0",
+    "1": "908686"
+  },
+  "monitors": [
+  {
+    "workspaces": [
+      { "name": "一", "layout": "BSP" },
+      { "name": "二", "layout": "BSP" },
+      { "name": "三", "layout": "BSP" },
+      { "name": "四", "layout": "BSP" },
+      { "name": "五", "layout": "BSP" },
+      { "name": "六", "layout": "BSP" },
+      { "name": "七", "layout": "BSP" }
+    ]
+  },
+  {
+    "workspaces": [
+      { "name": "一", "layout": "BSP" },
+      { "name": "二", "layout": "BSP" },
+      { "name": "三", "layout": "BSP" },
+      { "name": "四", "layout": "BSP" },
+      { "name": "五", "layout": "BSP" },
+      { "name": "六", "layout": "BSP" },
+      { "name": "七", "layout": "BSP" }
+    ]
+  }
+]
+}

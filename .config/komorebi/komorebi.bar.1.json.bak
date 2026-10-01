@@ -1,0 +1,63 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.41/schema.bar.json",
+  "font_family": "JetBrains Mono",
+  "monitor_index": 0,
+  "theme": {
+    "palette": "Custom",
+    "accent": "Base0D",
+    "colours": {
+      "base_00": "#1e1e2e",
+      "base_01": "#181825",
+      "base_02": "#313244",
+      "base_03": "#45475a",
+      "base_04": "#585b70",
+      "base_05": "#cdd6f4",
+      "base_06": "#f5e0dc",
+      "base_07": "#b4befe",
+      "base_08": "#f38ba8",
+      "base_09": "#fab387",
+      "base_0a": "#f9e2af",
+      "base_0b": "#a6e3a1",
+      "base_0c": "#94e2d5",
+      "base_0d": "#85023e",
+      "base_0e": "#89b4fa",
+      "base_0f": "#f5e0dc"
+    }
+  },
+  "left_widgets": [
+    {
+      "Komorebi": {
+        "workspaces": {
+          "enable": true,
+          "hide_empty_workspaces": true
+        },
+        "layout": {
+          "enable": true
+        },
+        "focused_window": {
+          "enable": true,
+          "show_icon": true
+        }
+      }
+    }
+  ],
+  "right_widgets": [
+    {
+      "Network": {
+        "enable": true,
+        "show_activity": true,
+        "show_total_activity": false
+      }
+    },
+    {
+      "Memory": {
+        "enable": true
+      }
+    },
+    {
+      "Update": {
+        "enable": true
+      }
+    }
+  ]
+}

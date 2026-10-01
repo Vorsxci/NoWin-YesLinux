@@ -1,0 +1,125 @@
+# Set powershell as the shell executor for whkd commands
+.shell pwsh
+
+# ==============================================================================
+# CONFIG & DAEMON CONTROLS
+# ==============================================================================
+# Reload WHKD and Komorebi configurations
+lwin + r                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden
+lwin + shift + r         : komorebic reload-configuration
+
+# Pause/Toggle Shortcuts
+lwin + p                 : komorebic toggle-pause
+lwin + i                 : komorebic toggle-shortcuts
+
+# Utility / Retile
+lwin + shift + u         : komorebic retile
+
+# ==============================================================================
+# APPLICATION LAUNCHERS (Launch or Focus IF Already Running)
+# ==============================================================================
+# Base Applications
+lwin + return            : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('Windows Terminal') -eq $False) { start wt }
+lwin + f                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('File Explorer') -eq $False) { start explorer }
+lwin + b                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('Google Chrome') -eq $False) { start chrome }
+lwin + shift + b         : start chrome --incognito
+lwin + m                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('Spotify') -eq $False) { start spotify }
+lwin + n                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('Notepad') -eq $False) { start notepad }
+lwin + t                 : wt.exe btop
+lwin + l                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('LINE') -eq $False) { start line }
+lwin + o                 : \(wshell = New-Object -ComObject WScript.Shell; if (\)wshell.AppActivate('Obsidian') -eq $False) { start obsidian }
+lwin + shift + i         : rundll32.exe user32.dll,LockWorkStation
+
+# Web Applications (Chrome Standalone App Mode)
+lwin + a                 : start chrome --app="https://chatgpt.com"
+lwin + c                 : start chrome --app="https://app.hey.com/calendar/weeks/"
+lwin + y                 : start chrome --app="https://youtube.com/"
+lwin + shift + g         : start chrome --app="https://web.whatsapp.com/"
+lwin + alt + g           : start chrome --app="https://messages.google.com/web/conversations"
+lwin + d                 : start chrome --app="https://discord.com/channels/@me"
+
+# ==============================================================================
+# WINDOW & TILING CONTROLS
+# ==============================================================================
+lwin + q                 : komorebic close
+ctrl + alt + delete       : Get-Process | Where-Object {$_.MainWindowTitle -ne ""} | Stop-Process
+lwin + j                 : komorebic toggle-layout-default
+lwin + v                 : komorebic toggle-float
+shift + f11               : komorebic toggle-monocle
+alt + f11                 : komorebic toggle-maximize
+lwin + shift + return    : komorebic promote
+
+# Layout Flipping
+lwin + x                 : komorebic flip-layout horizontal
+lwin + y                 : komorebic flip-layout vertical
+
+# ==============================================================================
+# FOCUS NAVIGATION
+# ==============================================================================
+lwin + left              : komorebic focus left
+lwin + right             : komorebic focus right
+lwin + up                : komorebic focus up
+lwin + down              : komorebic focus down
+
+# Cycle Active Focus
+alt + tab                 : komorebic cycle-focus next
+alt + shift + tab         : komorebic cycle-focus previous
+lwin + oem_4             : komorebic cycle-focus previous  # [
+lwin + oem_6             : komorebic cycle-focus next      # ]
+
+# ==============================================================================
+# WINDOW SWAPPING & POSITIONING
+# ==============================================================================
+lwin + shift + left      : komorebic move left
+lwin + shift + right     : komorebic move right
+lwin + shift + up        : komorebic move up
+lwin + shift + down      : komorebic move down
+
+# ==============================================================================
+# STACKING
+# ==============================================================================
+lwin + alt + left        : komorebic stack left
+lwin + alt + right       : komorebic stack right
+lwin + alt + up          : komorebic stack up
+lwin + alt + down        : komorebic stack down
+lwin + oem_1             : komorebic unstack               # ;
+lwin + alt + oem_4       : komorebic cycle-stack previous  # [
+lwin + alt + oem_6       : komorebic cycle-stack next      # ]
+
+# ==============================================================================
+# WORKSPACES (0-indexed in Komorebi: 1=0, 2=1, ..., 10=9)
+# ==============================================================================
+lwin + 1                 : komorebic focus-workspace 0
+lwin + 2                 : komorebic focus-workspace 1
+lwin + 3                 : komorebic focus-workspace 2
+lwin + 4                 : komorebic focus-workspace 3
+lwin + 5                 : komorebic focus-workspace 4
+lwin + 6                 : komorebic focus-workspace 5
+lwin + 7                 : komorebic focus-workspace 6
+lwin + 8                 : komorebic focus-workspace 7
+lwin + 9                 : komorebic focus-workspace 8
+lwin + 0                 : komorebic focus-workspace 9
+
+# Move Active Window to Workspace
+lwin + shift + 1         : komorebic move-container-to-workspace 0
+lwin + shift + 2         : komorebic move-container-to-workspace 1
+lwin + shift + 3         : komorebic move-container-to-workspace 2
+lwin + shift + 4         : komorebic move-container-to-workspace 3
+lwin + shift + 5         : komorebic move-container-to-workspace 4
+lwin + shift + 6         : komorebic move-container-to-workspace 5
+lwin + shift + 7         : komorebic move-container-to-workspace 6
+lwin + shift + 8         : komorebic move-container-to-workspace 7
+lwin + shift + 9         : komorebic move-container-to-workspace 8
+lwin + shift + 0         : komorebic move-container-to-workspace 9
+
+# Cycle Workspaces
+lwin + tab               : komorebic cycle-workspace next
+lwin + shift + tab       : komorebic cycle-workspace previous
+
+# ==============================================================================
+# RESIZING WINDOWS
+# ==============================================================================
+lwin + oem_minus         : komorebic resize-axis horizontal decrease
+lwin + oem_plus          : komorebic resize-axis horizontal increase
+lwin + shift + oem_minus : komorebic resize-axis vertical decrease
+lwin + shift + oem_plus  : komorebic resize-axis vertical increase
